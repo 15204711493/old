@@ -1,15 +1,36 @@
 <template>
-  <img class="img" src="../assets/home/2.png">
+  <img  @click="onClick" class="img"  :src=url>
 </template>
 
 
 
-<!--<script>-->
-<!--export default {-->
-<!--  name: 'Swiper'-->
-<!--}-->
+<script>
+const p = 1
 
-<!--</script>-->
+export default {
+  name: 'Swiper',
+  props:{
+    url:{
+      type:String
+    },
+    num:{
+      type: Number
+    }
+
+  },
+  setup(s,context){
+    function onClick() {
+        context.emit('subevent',p)
+    }
+    return{
+      onClick
+    }
+  }
+
+
+}
+
+</script>
 
 <style scoped>
 .img{
